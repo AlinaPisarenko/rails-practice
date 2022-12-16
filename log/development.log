@@ -1,0 +1,765 @@
+  [1m[35m (0.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAirports (20221216154753)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "airports" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "abbrv" varchar, "plane_capacity" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221216154753"]]
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddIntToAirports (20221216155232)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "airports" ADD "int" boolean[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221216155232"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-12-16 15:53:06.346743"], ["updated_at", "2022-12-16 15:53:06.346743"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Create (0.8ms)[0m  [1m[32mINSERT INTO "airports" ("name", "abbrv", "plane_capacity", "created_at", "updated_at", "int") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "John F Kennedy Airport"], ["abbrv", "JFK"], ["plane_capacity", 5], ["created_at", "2022-12-16 15:59:08.365217"], ["updated_at", "2022-12-16 15:59:08.365217"], ["int", 1]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Create (1.6ms)[0m  [1m[32mINSERT INTO "airports" ("name", "abbrv", "plane_capacity", "created_at", "updated_at", "int") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Newark Airport"], ["abbrv", "EWR"], ["plane_capacity", 6], ["created_at", "2022-12-16 16:00:23.679507"], ["updated_at", "2022-12-16 16:00:23.679507"], ["int", 1]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Create (1.1ms)[0m  [1m[32mINSERT INTO "airports" ("name", "abbrv", "plane_capacity", "created_at", "updated_at", "int") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Columbus Airport"], ["abbrv", "CMH"], ["plane_capacity", 7], ["created_at", "2022-12-16 16:00:50.642699"], ["updated_at", "2022-12-16 16:00:50.642699"], ["int", 1]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports"[0m
+Started GET "/" for ::1 at 2022-12-16 11:11:39 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/alinapisarenko/.rvm/rubies/ruby-2.7.4/lib/ruby/gems/2.7.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/alinapisarenko/.rvm/rubies/ruby-2.7.4/lib/ruby/gems/2.7.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.8ms | Allocations: 773)
+Completed 200 OK in 19ms (Views: 6.1ms | ActiveRecord: 0.0ms | Allocations: 6652)
+
+
+Started GET "/airports" for ::1 at 2022-12-16 11:11:48 -0500
+Processing by AirportsController#show as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 63)
+
+
+Started GET "/airports" for ::1 at 2022-12-16 11:12:00 -0500
+Processing by AirportsController#show as HTML
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 31)
+
+
+Started GET "/airports" for ::1 at 2022-12-16 11:14:59 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AirportsController#index as HTML
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports"[0m
+  ↳ app/controllers/airports_controller.rb:4:in `index'
+Completed 200 OK in 12ms (Views: 5.1ms | ActiveRecord: 0.5ms | Allocations: 36803)
+
+
+Started GET "/favicon.ico" for ::1 at 2022-12-16 11:15:00 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/airports" for ::1 at 2022-12-16 11:16:25 -0500
+Processing by AirportsController#index as HTML
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports"[0m
+  ↳ app/controllers/airports_controller.rb:4:in `index'
+Completed 200 OK in 6ms (Views: 4.0ms | ActiveRecord: 0.8ms | Allocations: 3342)
+
+
+Started GET "//1" for ::1 at 2022-12-16 11:16:29 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/1"):
+  
+Started GET "/1" for ::1 at 2022-12-16 11:16:36 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/1"):
+  
+Started GET "/1" for ::1 at 2022-12-16 11:16:39 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/1"):
+  
+Started GET "/airports" for ::1 at 2022-12-16 11:16:45 -0500
+Processing by AirportsController#index as HTML
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports"[0m
+  ↳ app/controllers/airports_controller.rb:4:in `index'
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.1ms | Allocations: 971)
+
+
+Started GET "/airports/1" for ::1 at 2022-12-16 11:16:46 -0500
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:8:in `show'
+Completed 200 OK in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1275)
+
+
+Started GET "/airports/ndsljk" for ::1 at 2022-12-16 11:25:51 -0500
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"ndsljk"}
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1176)
+
+
+Started GET "/airports/ndsljk" for ::1 at 2022-12-16 11:27:07 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"ndsljk"}
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:10:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 20754)
+
+
+Started GET "/airports" for ::1 at 2022-12-16 11:27:11 -0500
+Processing by AirportsController#index as HTML
+  [1m[36mAirport Load (0.8ms)[0m  [1m[34mSELECT "airports".* FROM "airports"[0m
+  ↳ app/controllers/airports_controller.rb:6:in `index'
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 1.2ms | Allocations: 17223)
+
+
+Started GET "/airports/1" for ::1 at 2022-12-16 11:27:14 -0500
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:10:in `show'
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 618)
+
+
+Started GET "/airports/sdvm" for ::1 at 2022-12-16 11:27:17 -0500
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"sdvm"}
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:10:in `show'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 500)
+
+
+Started GET "/airports/s" for ::1 at 2022-12-16 11:28:54 -0500
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"s"}
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:10:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 1426)
+
+
+Started GET "/airports/s" for ::1 at 2022-12-16 11:30:15 -0500
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"s"}
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:10:in `show'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 1417)
+
+
+Started GET "/airports" for ::1 at 2022-12-16 11:30:18 -0500
+Processing by AirportsController#index as HTML
+  [1m[36mAirport Load (1.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports"[0m
+  ↳ app/controllers/airports_controller.rb:6:in `index'
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 1.9ms | Allocations: 2528)
+
+
+Started GET "/airports/ddscsd" for ::1 at 2022-12-16 11:30:23 -0500
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"ddscsd"}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:10:in `show'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 484)
+
+
+Started GET "/airports/ddscsd" for ::1 at 2022-12-16 11:34:39 -0500
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"ddscsd"}
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:10:in `show'
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.7ms | Allocations: 3462)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<AirportsController:0x00000000012f98>):
+  
+app/controllers/airports_controller.rb:28:in `render_error_message_not_found'
+Started GET "/airports/1" for ::1 at 2022-12-16 11:34:49 -0500
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAirport Load (0.8ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:10:in `show'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.8ms | Allocations: 1984)
+
+
+Started GET "/airports/5" for ::1 at 2022-12-16 11:34:56 -0500
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:10:in `show'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.2ms | Allocations: 2339)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<AirportsController:0x00000000013380>):
+  
+app/controllers/airports_controller.rb:28:in `render_error_message_not_found'
+Started GET "/airports/5" for ::1 at 2022-12-16 11:35:36 -0500
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:10:in `show'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 2338)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<AirportsController:0x000000000135b0>):
+  
+app/controllers/airports_controller.rb:28:in `render_error_message_not_found'
+Started GET "/airports/5" for ::1 at 2022-12-16 11:35:40 -0500
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:10:in `show'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 2338)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<AirportsController:0x00000000013790>):
+  
+app/controllers/airports_controller.rb:28:in `render_error_message_not_found'
+Started GET "/airports/5" for ::1 at 2022-12-16 11:38:35 -0500
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:10:in `show'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.7ms | Allocations: 3451)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<AirportsController:0x00000000016f30>):
+  
+app/controllers/airports_controller.rb:28:in `render_error_message_not_found'
+Started GET "/airports/5" for ::1 at 2022-12-16 11:38:36 -0500
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:10:in `show'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.3ms | Allocations: 2340)
+
+
+  
+NameError (undefined local variable or method `not_found' for #<AirportsController:0x00000000017110>):
+  
+app/controllers/airports_controller.rb:28:in `render_error_message_not_found'
+Started GET "/airports/5" for ::1 at 2022-12-16 11:38:47 -0500
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:10:in `show'
+Completed 404 Not Found in 4ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 1625)
+
+
+Started GET "/airports/5" for ::1 at 2022-12-16 12:00:01 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:12:in `show'
+Completed 404 Not Found in 17ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 21070)
+
+
+Started GET "/airports/1" for ::1 at 2022-12-16 12:00:04 -0500
+Processing by AirportsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:12:in `show'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 16629)
+
+
+Started GET "/airports/1" for ::1 at 2022-12-16 13:36:16 -0500
+Processing by AirportsController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:12:in `show'
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 2754)
+
+
+Started POST "/airports/1" for ::1 at 2022-12-16 13:38:17 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/airports/1"):
+  
+Started POST "/airports" for ::1 at 2022-12-16 13:38:24 -0500
+Processing by AirportsController#create as */*
+  Parameters: {"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true, "airport"=>{"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true}}
+[31mUnpermitted parameter: :airport. Context: { controller: AirportsController, action: create, request: #<ActionDispatch::Request:0x0000000107146268>, params: {"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true, "controller"=>"airports", "action"=>"create", "airport"=>{"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true}} }[0m
+Completed 201 Created in 2ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 535)
+
+
+Started GET "/airports" for ::1 at 2022-12-16 13:38:29 -0500
+Processing by AirportsController#index as */*
+  Parameters: {"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true, "airport"=>{"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true}}
+  [1m[36mAirport Load (0.8ms)[0m  [1m[34mSELECT "airports".* FROM "airports"[0m
+  ↳ app/controllers/airports_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.8ms | Allocations: 1014)
+
+
+Started POST "/airports" for ::1 at 2022-12-16 13:38:49 -0500
+Processing by AirportsController#create as */*
+  Parameters: {"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true, "airport"=>{"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true}}
+[31mUnpermitted parameter: :airport. Context: { controller: AirportsController, action: create, request: #<ActionDispatch::Request:0x0000000110977dc0>, params: {"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true, "controller"=>"airports", "action"=>"create", "airport"=>{"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true}} }[0m
+Completed 201 Created in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 443)
+
+
+Started GET "/airports" for ::1 at 2022-12-16 13:38:57 -0500
+Processing by AirportsController#index as */*
+  Parameters: {"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true, "airport"=>{"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true}}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports"[0m
+  ↳ app/controllers/airports_controller.rb:8:in `index'
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.2ms | Allocations: 978)
+
+
+Started GET "/airports" for ::1 at 2022-12-16 13:39:06 -0500
+Processing by AirportsController#index as */*
+  Parameters: {"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true, "airport"=>{"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true}}
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports"[0m
+  ↳ app/controllers/airports_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.1ms | Allocations: 960)
+
+
+Started POST "/airports" for ::1 at 2022-12-16 13:39:15 -0500
+Processing by AirportsController#create as */*
+  Parameters: {"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true, "airport"=>{"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true}}
+[31mUnpermitted parameter: :airport. Context: { controller: AirportsController, action: create, request: #<ActionDispatch::Request:0x00000001108cf210>, params: {"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true, "controller"=>"airports", "action"=>"create", "airport"=>{"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>10, "int"=>true}} }[0m
+Completed 201 Created in 4ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 441)
+
+
+Started POST "/airports" for ::1 at 2022-12-16 14:05:00 -0500
+Processing by AirportsController#create as */*
+  Parameters: {"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>11, "int"=>true, "airport"=>{"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>11, "int"=>true}}
+[31mUnpermitted parameter: :airport. Context: { controller: AirportsController, action: create, request: #<ActionDispatch::Request:0x0000000110877510>, params: {"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>11, "int"=>true, "controller"=>"airports", "action"=>"create", "airport"=>{"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>11, "int"=>true}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/airports_controller.rb:17:in `create'
+  [1m[36mAirport Create (1.0ms)[0m  [1m[32mINSERT INTO "airports" ("name", "abbrv", "plane_capacity", "created_at", "updated_at", "int") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "LaGuardia"], ["abbrv", "LGA"], ["plane_capacity", 11], ["created_at", "2022-12-16 19:05:00.236270"], ["updated_at", "2022-12-16 19:05:00.236270"], ["int", 1]]
+  ↳ app/controllers/airports_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/airports_controller.rb:17:in `create'
+Completed 201 Created in 9ms (Views: 0.4ms | ActiveRecord: 2.0ms | Allocations: 2069)
+
+
+Started GET "/airports" for ::1 at 2022-12-16 14:05:04 -0500
+Processing by AirportsController#index as */*
+  Parameters: {"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>11, "int"=>true, "airport"=>{"name"=>"LaGuardia", "abbrv"=>"LGA", "plane_capacity"=>11, "int"=>true}}
+  [1m[36mAirport Load (0.4ms)[0m  [1m[34mSELECT "airports".* FROM "airports"[0m
+  ↳ app/controllers/airports_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.4ms | Allocations: 1112)
+
+
+Started PATCH "/airports/2" for ::1 at 2022-12-16 14:11:16 -0500
+Processing by AirportsController#update as */*
+  Parameters: {"int"=>false, "id"=>"2", "airport"=>{"int"=>false}}
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:22:in `update'
+[31mUnpermitted parameters: :id, :airport. Context: { controller: AirportsController, action: update, request: #<ActionDispatch::Request:0x00000001055879f0>, params: {"int"=>false, "controller"=>"airports", "action"=>"update", "id"=>"2", "airport"=>{"int"=>false}} }[0m
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.5ms | Allocations: 6199)
+
+
+  
+NoMethodError (undefined method `full_mesages' for #<ActiveModel::Errors:0x000000010529bc28>
+Did you mean?  full_message
+               full_messages):
+  
+app/controllers/airports_controller.rb:37:in `render_error_invalid'
+Started PATCH "/airports/2" for ::1 at 2022-12-16 14:11:53 -0500
+Processing by AirportsController#update as */*
+  Parameters: {"int"=>false, "id"=>"2", "airport"=>{"int"=>false}}
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:22:in `update'
+[31mUnpermitted parameters: :id, :airport. Context: { controller: AirportsController, action: update, request: #<ActionDispatch::Request:0x000000011096e0e0>, params: {"int"=>false, "controller"=>"airports", "action"=>"update", "id"=>"2", "airport"=>{"int"=>false}} }[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 3416)
+
+
+Started PATCH "/airports/2" for ::1 at 2022-12-16 14:12:32 -0500
+Processing by AirportsController#update as */*
+  Parameters: {"int"=>false, "plane_capacity"=>7, "id"=>"2", "airport"=>{"plane_capacity"=>7, "int"=>false}}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:22:in `update'
+[31mUnpermitted parameters: :id, :airport. Context: { controller: AirportsController, action: update, request: #<ActionDispatch::Request:0x0000000134e706f0>, params: {"int"=>false, "plane_capacity"=>7, "controller"=>"airports", "action"=>"update", "id"=>"2", "airport"=>{"plane_capacity"=>7, "int"=>false}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/airports_controller.rb:23:in `update'
+  [1m[36mAirport Update (0.6ms)[0m  [1m[33mUPDATE "airports" SET "plane_capacity" = ?, "updated_at" = ?, "int" = ? WHERE "airports"."id" = ?[0m  [["plane_capacity", 7], ["updated_at", "2022-12-16 19:12:32.289877"], ["int", 0], ["id", 2]]
+  ↳ app/controllers/airports_controller.rb:23:in `update'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/airports_controller.rb:23:in `update'
+Completed 202 Accepted in 6ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 2336)
+
+
+Started PATCH "/airports/200000" for ::1 at 2022-12-16 14:13:41 -0500
+Processing by AirportsController#update as */*
+  Parameters: {"int"=>false, "plane_capacity"=>7, "id"=>"200000", "airport"=>{"plane_capacity"=>7, "int"=>false}}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 200000], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:22:in `update'
+Completed 404 Not Found in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 506)
+
+
+Started DELETE "/airports/4" for ::1 at 2022-12-16 14:23:06 -0500
+  
+SyntaxError (/Users/alinapisarenko/Development/code/phase-4/backend/app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+...re_action :find_airport, only [:show, :update, :destroy]
+...                              ^
+):
+  
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+Started DELETE "/airports/4" for ::1 at 2022-12-16 14:23:30 -0500
+  
+SyntaxError (/Users/alinapisarenko/Development/code/phase-4/backend/app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+...re_action :find_airport, only [:show, :update, :destroy]
+...                              ^
+):
+  
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+Started DELETE "/airports/4" for ::1 at 2022-12-16 14:24:02 -0500
+  
+SyntaxError (/Users/alinapisarenko/Development/code/phase-4/backend/app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+...re_action :find_airport, only [:show, :update, :destroy]
+...                              ^
+):
+  
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+Started DELETE "/airports/4" for ::1 at 2022-12-16 14:24:55 -0500
+  
+SyntaxError (/Users/alinapisarenko/Development/code/phase-4/backend/app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+...re_action :find_airport, only [:show, :update, :destroy]
+...                              ^
+):
+  
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+Started DELETE "/airports/4" for ::1 at 2022-12-16 14:25:37 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/alinapisarenko/Development/code/phase-4/backend/app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+...re_action :find_airport, only [:show, :update, :destroy]
+...                              ^
+):
+  
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+Started DELETE "/airports/4" for ::1 at 2022-12-16 14:25:53 -0500
+  
+SyntaxError (/Users/alinapisarenko/Development/code/phase-4/backend/app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+...re_action :find_airport, only [:show, :update, :destroy]
+...                              ^
+):
+  
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+Started DELETE "/airports/4" for ::1 at 2022-12-16 14:27:16 -0500
+  
+SyntaxError (/Users/alinapisarenko/Development/code/phase-4/backend/app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+...re_action :find_airport, only [:show, :update, :destroy]
+...                              ^
+):
+  
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+Started DELETE "/airports/4" for ::1 at 2022-12-16 14:28:10 -0500
+  
+SyntaxError (/Users/alinapisarenko/Development/code/phase-4/backend/app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+...re_action :find_airport, only [:show, :update, :destroy]
+...                              ^
+):
+  
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+Started DELETE "/airports/4" for ::1 at 2022-12-16 14:28:11 -0500
+  
+SyntaxError (/Users/alinapisarenko/Development/code/phase-4/backend/app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+...re_action :find_airport, only [:show, :update, :destroy]
+...                              ^
+):
+  
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+Started GET "/airports" for ::1 at 2022-12-16 14:28:37 -0500
+  
+SyntaxError (/Users/alinapisarenko/Development/code/phase-4/backend/app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+...re_action :find_airport, only [:show, :update, :destroy]
+...                              ^
+):
+  
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+Started GET "/airports" for ::1 at 2022-12-16 14:28:38 -0500
+  
+SyntaxError (/Users/alinapisarenko/Development/code/phase-4/backend/app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+...re_action :find_airport, only [:show, :update, :destroy]
+...                              ^
+):
+  
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+Started DELETE "/airports/4" for ::1 at 2022-12-16 14:36:15 -0500
+  
+SyntaxError (/Users/alinapisarenko/Development/code/phase-4/backend/app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+...re_action :find_airport, only [:show, :update, :destroy]
+...                              ^
+):
+  
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+Started GET "/airports/4" for ::1 at 2022-12-16 14:38:30 -0500
+  
+SyntaxError (/Users/alinapisarenko/Development/code/phase-4/backend/app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+...re_action :find_airport, only [:show, :update, :destroy]
+...                              ^
+):
+  
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+Started GET "/airports/4" for ::1 at 2022-12-16 14:38:32 -0500
+  
+SyntaxError (/Users/alinapisarenko/Development/code/phase-4/backend/app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+...re_action :find_airport, only [:show, :update, :destroy]
+...                              ^
+):
+  
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+app/controllers/airports_controller.rb:2: syntax error, unexpected [, expecting `do' or '{' or '('
+Started GET "/airports/4" for ::1 at 2022-12-16 14:41:23 -0500
+Processing by AirportsController#show as */*
+  Parameters: {"id"=>"4", "airport"=>{}}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:46:in `find_airport'
+Completed 200 OK in 15ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 36288)
+
+
+Started DELETE "/airports/4" for ::1 at 2022-12-16 14:41:28 -0500
+Processing by AirportsController#destroy as */*
+  Parameters: {"id"=>"4", "airport"=>{}}
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:46:in `find_airport'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/airports_controller.rb:27:in `destroy'
+  [1m[36mAirport Destroy (0.5ms)[0m  [1m[31mDELETE FROM "airports" WHERE "airports"."id" = ?[0m  [["id", 4]]
+  ↳ app/controllers/airports_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/airports_controller.rb:27:in `destroy'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 2.8ms | Allocations: 1845)
+
+
+Started DELETE "/airports/4" for ::1 at 2022-12-16 14:42:02 -0500
+Processing by AirportsController#destroy as */*
+  Parameters: {"id"=>"4", "airport"=>{}}
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:46:in `find_airport'
+Completed 404 Not Found in 2ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 815)
+
+
+Started DELETE "/airports/3" for ::1 at 2022-12-16 14:42:06 -0500
+Processing by AirportsController#destroy as */*
+  Parameters: {"id"=>"3", "airport"=>{}}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:46:in `find_airport'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/airports_controller.rb:27:in `destroy'
+  [1m[36mAirport Destroy (1.1ms)[0m  [1m[31mDELETE FROM "airports" WHERE "airports"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/airports_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/airports_controller.rb:27:in `destroy'
+Completed 200 OK in 15ms (Views: 0.2ms | ActiveRecord: 3.5ms | Allocations: 3150)
+
+
+Started GET "/airports" for ::1 at 2022-12-16 14:42:11 -0500
+Processing by AirportsController#index as */*
+  Parameters: {"airport"=>{}}
+  [1m[36mAirport Load (0.4ms)[0m  [1m[34mSELECT "airports".* FROM "airports"[0m
+  ↳ app/controllers/airports_controller.rb:8:in `index'
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.4ms | Allocations: 887)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateAirplanes (20221216200637)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "airplanes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "model" varchar, "seats" integer, "airport_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221216200637"]]
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAirplane Create (0.5ms)[0m  [1m[32mINSERT INTO "airplanes" ("model", "seats", "airport_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["model", "Boeng A142L"], ["seats", 180], ["airport_id", 1], ["created_at", "2022-12-16 20:15:07.609210"], ["updated_at", "2022-12-16 20:15:07.609210"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAirplane Create (1.5ms)[0m  [1m[32mINSERT INTO "airplanes" ("model", "seats", "airport_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["model", "Sesna"], ["seats", 2], ["airport_id", 1], ["created_at", "2022-12-16 20:15:35.466722"], ["updated_at", "2022-12-16 20:15:35.466722"]]
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/airplane" for ::1 at 2022-12-16 15:17:40 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/airplane"):
+  
+Started GET "/airplane" for ::1 at 2022-12-16 15:19:07 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/airplane"):
+  
+Started GET "/airplanes" for ::1 at 2022-12-16 15:19:16 -0500
+Processing by AirplanesController#index as */*
+  Parameters: {"airplane"=>{}}
+  [1m[36mAirplane Load (0.3ms)[0m  [1m[34mSELECT "airplanes".* FROM "airplanes"[0m
+  ↳ app/controllers/airplanes_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 4.4ms | ActiveRecord: 0.9ms | Allocations: 34950)
+
+
+Started GET "/airplanes/1" for ::1 at 2022-12-16 15:19:21 -0500
+Processing by AirplanesController#show as */*
+  Parameters: {"id"=>"1", "airplane"=>{}}
+  [1m[36mAirplane Load (0.1ms)[0m  [1m[34mSELECT "airplanes".* FROM "airplanes" WHERE "airplanes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airplanes_controller.rb:9:in `show'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1278)
+
+
+Started GET "/airports/1" for ::1 at 2022-12-16 15:22:58 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AirportsController#show as */*
+  Parameters: {"id"=>"1", "airport"=>{}}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:46:in `find_airport'
+[active_model_serializers] Rendered AirportSerializer with ActiveModelSerializers::Adapter::Attributes (0.13ms)
+Completed 200 OK in 23ms (Views: 12.2ms | ActiveRecord: 0.5ms | Allocations: 38463)
+
+
+Started GET "/airports/1" for ::1 at 2022-12-16 15:23:47 -0500
+Processing by AirportsController#show as */*
+  Parameters: {"id"=>"1", "airport"=>{}}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:46:in `find_airport'
+[active_model_serializers] Rendered AirportSerializer with ActiveModelSerializers::Adapter::Attributes (0.11ms)
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.6ms | Allocations: 2608)
+
+
+Started GET "/airports/1" for ::1 at 2022-12-16 15:24:32 -0500
+Processing by AirportsController#show as */*
+  Parameters: {"id"=>"1", "airport"=>{}}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:46:in `find_airport'
+[active_model_serializers]   [1m[36mAirplane Load (0.1ms)[0m  [1m[34mSELECT "airplanes".* FROM "airplanes" WHERE "airplanes"."airport_id" = ?[0m  [["airport_id", 1]]
+[active_model_serializers]   ↳ app/controllers/airports_controller.rb:12:in `show'
+[active_model_serializers] Rendered AirportSerializer with ActiveModelSerializers::Adapter::Attributes (18.12ms)
+Completed 200 OK in 27ms (Views: 23.9ms | ActiveRecord: 1.6ms | Allocations: 25195)
+
+
+Started GET "/airports/1" for ::1 at 2022-12-16 15:26:19 -0500
+Processing by AirportsController#show as */*
+  Parameters: {"id"=>"1", "airport"=>{}}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:46:in `find_airport'
+[active_model_serializers]   [1m[36mAirplane Load (0.0ms)[0m  [1m[34mSELECT "airplanes".* FROM "airplanes" WHERE "airplanes"."airport_id" = ?[0m  [["airport_id", 1]]
+[active_model_serializers]   ↳ app/controllers/airports_controller.rb:12:in `show'
+[active_model_serializers] No serializer found for resource: #<Airplane id: 1, model: "Boeng A142L", seats: 180, airport_id: 1, created_at: "2022-12-16 20:15:07.609210000 +0000", updated_at: "2022-12-16 20:15:07.609210000 +0000">
+[active_model_serializers] Rendered AirportSerializer with ActiveModelSerializers::Adapter::Attributes (4.45ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 0.9ms | Allocations: 9635)
+
+
+Started GET "/airports/1" for ::1 at 2022-12-16 15:26:33 -0500
+Processing by AirportsController#show as */*
+  Parameters: {"id"=>"1", "airport"=>{}}
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:46:in `find_airport'
+[active_model_serializers]   [1m[36mAirplane Load (0.0ms)[0m  [1m[34mSELECT "airplanes".* FROM "airplanes" WHERE "airplanes"."airport_id" = ?[0m  [["airport_id", 1]]
+[active_model_serializers]   ↳ app/controllers/airports_controller.rb:12:in `show'
+[active_model_serializers] No serializer found for resource: #<Airplane id: 1, model: "Boeng A142L", seats: 180, airport_id: 1, created_at: "2022-12-16 20:15:07.609210000 +0000", updated_at: "2022-12-16 20:15:07.609210000 +0000">
+[active_model_serializers] Rendered AirportSerializer with ActiveModelSerializers::Adapter::Attributes (4.65ms)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 1.1ms | Allocations: 7466)
+
+
+Started GET "/airports/1" for ::1 at 2022-12-16 15:26:35 -0500
+Processing by AirportsController#show as */*
+  Parameters: {"id"=>"1", "airport"=>{}}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:46:in `find_airport'
+[active_model_serializers]   [1m[36mAirplane Load (0.1ms)[0m  [1m[34mSELECT "airplanes".* FROM "airplanes" WHERE "airplanes"."airport_id" = ?[0m  [["airport_id", 1]]
+[active_model_serializers]   ↳ app/controllers/airports_controller.rb:12:in `show'
+[active_model_serializers] No serializer found for resource: #<Airplane id: 1, model: "Boeng A142L", seats: 180, airport_id: 1, created_at: "2022-12-16 20:15:07.609210000 +0000", updated_at: "2022-12-16 20:15:07.609210000 +0000">
+[active_model_serializers] Rendered AirportSerializer with ActiveModelSerializers::Adapter::Attributes (4.97ms)
+Completed 200 OK in 8ms (Views: 5.7ms | ActiveRecord: 0.3ms | Allocations: 1863)
+
+
+Started GET "/airports/1" for ::1 at 2022-12-16 15:26:51 -0500
+Processing by AirportsController#show as */*
+  Parameters: {"id"=>"1", "airport"=>{}}
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:46:in `find_airport'
+[active_model_serializers]   [1m[36mAirplane Load (0.1ms)[0m  [1m[34mSELECT "airplanes".* FROM "airplanes" WHERE "airplanes"."airport_id" = ?[0m  [["airport_id", 1]]
+[active_model_serializers]   ↳ app/controllers/airports_controller.rb:12:in `show'
+[active_model_serializers] No serializer found for resource: #<Airplane id: 1, model: "Boeng A142L", seats: 180, airport_id: 1, created_at: "2022-12-16 20:15:07.609210000 +0000", updated_at: "2022-12-16 20:15:07.609210000 +0000">
+[active_model_serializers] Rendered AirportSerializer with ActiveModelSerializers::Adapter::Attributes (3.74ms)
+Completed 200 OK in 7ms (Views: 5.2ms | ActiveRecord: 0.7ms | Allocations: 7433)
+
+
+Started GET "/airports/1" for ::1 at 2022-12-16 15:28:22 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AirportsController#show as */*
+  Parameters: {"id"=>"1", "airport"=>{}}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:46:in `find_airport'
+[active_model_serializers]   [1m[36mAirplane Load (0.0ms)[0m  [1m[34mSELECT "airplanes".* FROM "airplanes" WHERE "airplanes"."airport_id" = ?[0m  [["airport_id", 1]]
+[active_model_serializers]   ↳ app/controllers/airports_controller.rb:12:in `show'
+[active_model_serializers] No serializer found for resource: #<Airplane id: 1, model: "Boeng A142L", seats: 180, airport_id: 1, created_at: "2022-12-16 20:15:07.609210000 +0000", updated_at: "2022-12-16 20:15:07.609210000 +0000">
+[active_model_serializers] Rendered AirportSerializer with ActiveModelSerializers::Adapter::Attributes (10.08ms)
+Completed 200 OK in 27ms (Views: 17.3ms | ActiveRecord: 0.7ms | Allocations: 61142)
+
+
+Started GET "/airports/1" for ::1 at 2022-12-16 15:29:25 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AirportsController#show as */*
+  Parameters: {"id"=>"1", "airport"=>{}}
+  [1m[36mAirport Load (0.2ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airports_controller.rb:46:in `find_airport'
+[active_model_serializers]   [1m[36mAirplane Load (0.0ms)[0m  [1m[34mSELECT "airplanes".* FROM "airplanes" WHERE "airplanes"."airport_id" = ?[0m  [["airport_id", 1]]
+[active_model_serializers]   ↳ app/controllers/airports_controller.rb:12:in `show'
+[active_model_serializers] Rendered AirportSerializer with ActiveModelSerializers::Adapter::Attributes (13.62ms)
+Completed 200 OK in 32ms (Views: 21.2ms | ActiveRecord: 0.8ms | Allocations: 61075)
+
+
+Started GET "/airplanes/1" for ::1 at 2022-12-16 15:30:01 -0500
+Processing by AirplanesController#show as */*
+  Parameters: {"id"=>"1", "airplane"=>{}}
+  [1m[36mAirplane Load (0.3ms)[0m  [1m[34mSELECT "airplanes".* FROM "airplanes" WHERE "airplanes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airplanes_controller.rb:9:in `show'
+[active_model_serializers]   [1m[36mAirport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/airplanes_controller.rb:10:in `show'
+[active_model_serializers] Rendered AirplaneSerializer with ActiveModelSerializers::Adapter::Attributes (4.51ms)
+Completed 200 OK in 11ms (Views: 8.6ms | ActiveRecord: 0.9ms | Allocations: 7220)
+
+
+Started GET "/airplanes/1" for ::1 at 2022-12-16 15:32:45 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AirplanesController#show as */*
+  Parameters: {"id"=>"1", "airplane"=>{}}
+  [1m[36mAirplane Load (0.2ms)[0m  [1m[34mSELECT "airplanes".* FROM "airplanes" WHERE "airplanes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/airplanes_controller.rb:9:in `show'
+[active_model_serializers]   [1m[36mAirport Load (0.0ms)[0m  [1m[34mSELECT "airports".* FROM "airports" WHERE "airports"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/airplanes_controller.rb:10:in `show'
+[active_model_serializers] Rendered AirplaneSerializer with ActiveModelSerializers::Adapter::Attributes (9.43ms)
+Completed 200 OK in 26ms (Views: 16.3ms | ActiveRecord: 0.8ms | Allocations: 59284)
+
+
+Started GET "/airports" for ::1 at 2022-12-16 15:32:55 -0500
+Processing by AirportsController#index as */*
+  Parameters: {"airport"=>{}}
+  [1m[36mAirport Load (0.1ms)[0m  [1m[34mSELECT "airports".* FROM "airports"[0m
+  ↳ app/controllers/airports_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mAirplane Load (0.1ms)[0m  [1m[34mSELECT "airplanes".* FROM "airplanes" WHERE "airplanes"."airport_id" = ?[0m  [["airport_id", 1]]
+[active_model_serializers]   ↳ app/controllers/airports_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mAirplane Load (0.0ms)[0m  [1m[34mSELECT "airplanes".* FROM "airplanes" WHERE "airplanes"."airport_id" = ?[0m  [["airport_id", 2]]
+[active_model_serializers]   ↳ app/controllers/airports_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.75ms)
+Completed 200 OK in 6ms (Views: 5.7ms | ActiveRecord: 0.3ms | Allocations: 5011)
+
+
+Started GET "/airports" for ::1 at 2022-12-16 15:34:07 -0500
+Processing by AirportsController#index as */*
+  Parameters: {"airport"=>{}}
+  [1m[36mAirport Load (0.3ms)[0m  [1m[34mSELECT "airports".* FROM "airports"[0m
+  ↳ app/controllers/airports_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mAirplane Load (0.0ms)[0m  [1m[34mSELECT "airplanes".* FROM "airplanes" WHERE "airplanes"."airport_id" = ?[0m  [["airport_id", 1]]
+[active_model_serializers]   ↳ app/controllers/airports_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mAirplane Load (0.0ms)[0m  [1m[34mSELECT "airplanes".* FROM "airplanes" WHERE "airplanes"."airport_id" = ?[0m  [["airport_id", 2]]
+[active_model_serializers]   ↳ app/controllers/airports_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.76ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.9ms | Allocations: 8528)
+
+
